@@ -13,7 +13,7 @@ COPY ssh-agent.sh /usr/local/bin/start-notebook.d/
 RUN chmod +x /usr/local/bin/start-notebook.d/ssh-agent.sh
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openssh-client mc ncdu && \
+    apt-get install -y --no-install-recommends openssh-client mc ncdu tig && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python 3 packages
