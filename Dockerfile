@@ -42,6 +42,8 @@ RUN conda install --quiet --yes \
     jupyter labextension install @jupyterlab/git  --no-build && \
     jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
+    jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
+    jupyter labextension install jupyterlab-topbar-extension jupyterlab-theme-toggle --no-build && \
     # jupyter labextension install jupyterlab-theme-base16-solarized-light  --no-build && \
     jupyter lab build -y && \
     jupyter lab clean -y && \
