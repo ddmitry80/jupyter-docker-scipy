@@ -29,6 +29,7 @@ RUN conda install --quiet --yes \
     hyperopt \
     shap \
     graphviz \
+    lightgbm \
     kaggle \
     && \
     conda clean --all -f -y && \
