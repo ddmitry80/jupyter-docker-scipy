@@ -45,6 +45,7 @@ RUN conda install --quiet --yes \
     jupyter labextension install jupyter-matplotlib --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @jupyterlab/git  --no-build && \
+    jupyter labextension install ruler  --no-build && \
     jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
     jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
