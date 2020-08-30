@@ -1,6 +1,6 @@
 #!/bin/sh
-docker run -d --name=jupyter -p 9999:8888 -e JUPYTER_ENABLE_LAB=yes \
--v "$HOME"/Yandex.Disk/Учеба:/home/jovyan/work \
+docker run -d --name=jupyter-scipy -p 9999:8888 -e JUPYTER_ENABLE_LAB=yes \
+-v "$HOME"/Yandex.Disk/Учеба:/home/jovyan/work/Yandex \
 -v "$HOME"/Sources:/home/jovyan/work/Sources \
 -v "$HOME"/.ssh:/home/jovyan/.ssh \
 -v /etc/letsencrypt/live/home.dementiev.info/fullchain.pem:/etc/ssl/fullchain.pem \
