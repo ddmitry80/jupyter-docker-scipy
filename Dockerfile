@@ -32,6 +32,9 @@ RUN conda install --quiet --yes \
     lightgbm \
     kaggle \
     tqdm \
+    nb_conda_kernels \
+    jupyter_conda \
+    mamba \
     && \
     conda clean --all -f -y && \
     # Activate ipywidgets extension in the environment that runs the notebook server
@@ -46,6 +49,7 @@ RUN conda install --quiet --yes \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @jupyterlab/git  --no-build && \
     jupyter labextension install ruler  --no-build && \
+    jupyter labextension install jupyterlab_conda --no-build && \
     jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
     #jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
