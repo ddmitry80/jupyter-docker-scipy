@@ -25,6 +25,7 @@ RUN conda install --quiet --yes \
     catboost \
     xgboost \
     psycopg2 \
+    pymysql \
     plotly \
     hyperopt \
     shap \
@@ -35,6 +36,8 @@ RUN conda install --quiet --yes \
     nb_conda_kernels \
     jupyter_conda \
     mamba \
+    pyarrow \
+    fastparquet \
     && \
     conda clean --all -f -y && \
     # Activate ipywidgets extension in the environment that runs the notebook server
