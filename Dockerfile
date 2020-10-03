@@ -25,6 +25,7 @@ RUN conda install --quiet --yes \
     catboost \
     xgboost \
     psycopg2 \
+    pymysql \
     plotly \
     hyperopt \
     shap \
@@ -32,6 +33,9 @@ RUN conda install --quiet --yes \
     lightgbm \
     kaggle \
     tqdm \
+    nb_conda_kernels \
+    jupyter_conda \
+    mamba \
     pyarrow \
     fastparquet \
     python-snappy \
@@ -49,6 +53,7 @@ RUN conda install --quiet --yes \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @jupyterlab/git  --no-build && \
     jupyter labextension install ruler  --no-build && \
+    jupyter labextension install jupyterlab_conda --no-build && \
     jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
     #jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
