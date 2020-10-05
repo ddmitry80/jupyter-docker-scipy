@@ -39,6 +39,8 @@ RUN conda install --quiet --yes \
     pyarrow \
     fastparquet \
     python-snappy \
+    lxml \
+    html5lib \
     && \
     conda clean --all -f -y && \
     # Activate ipywidgets extension in the environment that runs the notebook server
