@@ -35,7 +35,6 @@ RUN conda install --quiet --yes \
     tqdm \
     nb_conda_kernels \
     jupyter_conda \
-    mamba \
     pyarrow \
     fastparquet \
     python-snappy \
@@ -43,20 +42,21 @@ RUN conda install --quiet --yes \
     html5lib \
     sympy \
     && \
-    conda clean --all -f -y && \
+    conda clean --all -f -y 
+
     # Activate ipywidgets extension in the environment that runs the notebook server
-    jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
+RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     # Also activate ipywidgets extension for JupyterLab
     # Check this URL for most recent compatibilities
     # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
     #jupyter labextension install @jupyter-widgets/jupyterlab-manager@^2.0.0 --no-build && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
-    jupyter labextension install @bokeh/jupyter_bokeh --no-build && \
+    # jupyter labextension install @bokeh/jupyter_bokeh --no-build && \
     jupyter labextension install jupyter-matplotlib --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @jupyterlab/git  --no-build && \
     jupyter labextension install ruler  --no-build && \
-    jupyter labextension install jupyterlab_conda --no-build && \
+    #jupyter labextension install jupyterlab_conda --no-build && \
     jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
     #jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
