@@ -23,6 +23,7 @@ RUN conda install --quiet --yes \
     # 'bokeh=2.0.*' \
     jupyterlab-git \
     xeus-python \
+    ipywidgets \
     catboost \
     xgboost \
     psycopg2 \
@@ -42,7 +43,7 @@ RUN conda install --quiet --yes \
     lxml \
     html5lib \
     sympy \
-    ipyml \
+    ipympl \
     theme-darcula \
     && \
     conda clean --all -f -y 
