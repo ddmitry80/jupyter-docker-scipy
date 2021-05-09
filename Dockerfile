@@ -22,6 +22,7 @@ RUN conda install --quiet --yes \
     # 'conda-forge::blas=*=openblas' \
     # 'bokeh=2.0.*' \
     jupyterlab-git \
+    xeus-python \
     catboost \
     xgboost \
     psycopg2 \
@@ -41,6 +42,8 @@ RUN conda install --quiet --yes \
     lxml \
     html5lib \
     sympy \
+    ipyml \
+    theme-darcula \
     && \
     conda clean --all -f -y 
 
@@ -52,12 +55,12 @@ RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     #jupyter labextension install @jupyter-widgets/jupyterlab-manager@^2.0.0 --no-build && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
     # jupyter labextension install @bokeh/jupyter_bokeh --no-build && \
-    jupyter labextension install jupyter-matplotlib --no-build && \
-    jupyter labextension install @jupyterlab/toc --no-build && \
-    jupyter labextension install @jupyterlab/git  --no-build && \
-    jupyter labextension install ruler  --no-build && \
+    #jupyter labextension install jupyter-matplotlib --no-build && \
+    # jupyter labextension install @jupyterlab/toc --no-build && \
+    #jupyter labextension install @jupyterlab/git  --no-build && \
+    #jupyter labextension install ruler  --no-build && \
     #jupyter labextension install jupyterlab_conda --no-build && \
-    jupyter labextension install @telamonian/theme-darcula  --no-build && \
+    #jupyter labextension install @telamonian/theme-darcula  --no-build && \
     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
     #jupyter labextension install @deathbeds/jupyterlab-fonts --no-build && \
     #jupyter labextension install jupyterlab-topbar-extension jupyterlab-theme-toggle --no-build && \
