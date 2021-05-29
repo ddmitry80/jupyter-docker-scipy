@@ -17,36 +17,51 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python 3 packages
-RUN conda install --quiet --yes \
-    # 'beautifulsoup4=4.9.*' \
-    # 'conda-forge::blas=*=openblas' \
-    # 'bokeh=2.0.*' \
+RUN conda install -c conda-forge --quiet --yes \
     jupyterlab-git \
+    python-snappy \
+    # jupyter_conda \
+    mamba_gator \
+    mamba \
+    && \
+    conda clean --all -f -y 
+
+# Install Python 3 packages
+RUN conda install -c conda-forge --yes \
     xeus-python \
-    ipywidgets \
-    catboost \
+    && \
+    conda clean --all -f -y 
+
+# Install Python 3 packages
+# RUN conda install -c conda-forge --yes \
+#     #jupyter_conda \
+#     && \
+#     conda clean --all -f -y 
+
+# Install Python 3 packages
+RUN conda install -c conda-forge --quiet --yes \
+    # catboost \
     xgboost \
+    lightgbm \
+    && \
+    conda clean --all -f -y 
+
+# Install Python 3 packages
+RUN mamba install -c conda-forge --quiet --yes \
     psycopg2 \
-    pymysql \
+    # pymysql \
     plotly \
     hyperopt \
     shap \
     graphviz \
-    lightgbm \
     kaggle \
-    tqdm \
-    nb_conda_kernels \
-    jupyter_conda \
     pyarrow \
     fastparquet \
-    python-snappy \
     lxml \
     html5lib \
-    sympy \
-    ipympl \
     theme-darcula \
     && \
-    conda clean --all -f -y 
+    mamba clean --all -f -y 
 
     # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
@@ -82,6 +97,10 @@ RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
 #     rm -rf /tmp/facets && \
 #     fix-permissions "${CONDA_DIR}" && \
 #     fix-permissions "/home/${NB_USER}"
+
+RUN echo "env_dirs:" >> $HOME/.conda/condarc && \
+    echo "- $HOME/conda-envs" >> $HOME/.conda/condarc
+    echo "- /opt/conda/envs" >> $HOME/.conda/condarc
 
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
